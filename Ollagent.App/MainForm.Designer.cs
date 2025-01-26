@@ -1,4 +1,4 @@
-﻿namespace Ollama.App
+﻿namespace Ollagent.App
 {
     partial class MainForm
     {

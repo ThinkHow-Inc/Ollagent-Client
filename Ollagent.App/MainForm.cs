@@ -1,15 +1,13 @@
 using System.Drawing.Imaging;
 using System.Text;
+
 using Microsoft.Extensions.Logging;
 
 using OllamaSharp;
 
 using Serilog.Sinks.InMemory;
 
-using System.Windows.Forms;
-using OllamaSharp.Models.Chat;
-
-namespace Ollama.App;
+namespace Ollagent.App;
 
 public partial class MainForm : Form
 {
@@ -217,11 +215,12 @@ public partial class MainForm : Form
     private void sendChatRichTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
         // If enter is hit, we send the message
-        if (e.KeyChar == (char)Keys.Enter)
+        if (e.KeyChar != (char)Keys.Enter)
         {
-            e.Handled = true;
-            sendChatButton_Click(sender, e);
+            return;
         }
+        e.Handled = true;
+        sendChatButton_Click(sender, e);
     }
 
     private void notifyIcon_DoubleClick(object sender, EventArgs e)
@@ -233,12 +232,13 @@ public partial class MainForm : Form
 
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (e.CloseReason == CloseReason.UserClosing)
+        if (e.CloseReason != CloseReason.UserClosing)
         {
-            e.Cancel = true;
-            this.Hide();
-            notifyIcon.ShowBalloonTip(1000, "Ollagent", "Ollagent.", ToolTipIcon.Info);
+            return;
         }
+        e.Cancel = true;
+        Hide();
+        notifyIcon.ShowBalloonTip(1000, "Ollagent", "Ollagent.", ToolTipIcon.Info);
     }
 
     private void InitializeContextMenu()
@@ -256,7 +256,7 @@ public partial class MainForm : Form
         ExitItem_Click(sender, e);
     }
 
-    private void ExitItem_Click(object sender, EventArgs e)
+    private void ExitItem_Click(object? sender, EventArgs e)
     {
         notifyIcon.Visible = false;
         Application.Exit();

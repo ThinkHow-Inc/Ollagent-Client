@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35617.110
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ollagent.App", "Ollama.App\Ollagent.App.csproj", "{5A4C9509-DC29-4360-ABD0-B468F7D33ACD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ollagent.App", "Ollagent.App\Ollagent.App.csproj", "{5A4C9509-DC29-4360-ABD0-B468F7D33ACD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ollagent.Docker", "Ollagent.Docker\Ollagent.Docker.csproj", "{420683CD-0778-4ACF-99BE-E71CABBCF674}"
 EndProject
