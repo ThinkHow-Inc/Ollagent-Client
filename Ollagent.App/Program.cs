@@ -1,10 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 using Serilog;
 using Serilog.Sinks.InMemory;
 
-namespace Ollama.App;
+namespace Ollagent.App;
 
 internal static class Program
 {
